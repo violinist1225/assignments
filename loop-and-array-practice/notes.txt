@@ -1,0 +1,244 @@
+
+// //  * QUIZ:
+// //  * 
+// //  * 1. What is the purpose of arrays? Why do programmers care about them?
+// // Arrays contain a collection of data about an object. Programmers care because it helps manage the storage of data much easier. 
+
+// Ans: Collect multiple pieces of data together in a single variable. 
+
+// //  * 
+// //  * 2. What are some differences between arrays and objects?
+// An object is a single item. Whereas array is collection of objects.
+
+// Ans:  Arrays are for gathering together many "things", and objects are best used to describe ONE thing in a lot more detail
+// //  * 
+// //  * 
+// //  * 3. How would you access the number 34 from the `numbers` array above? 
+// //  * See if you can log it to the console)
+// console.log(numbers[2])
+
+
+// //  * 
+// //  * 
+// //  * 4. What is the length of the `turtles` array? How would you access that length?
+// //  * There are 4 turtles. 
+//     console.log(turtles.length) 
+
+// //  * 
+// //  * 5. Is it syntatically correct to have an array like `disparateArr`?
+// //  * var disparateArr = ["Alice", 40, true, [8, 10, 12]]
+// Is OK. 
+// //  * 
+// //  * 6. What might be a better data structure to use for `disparateArr`?
+// //  Should be an object, instead of an array. As it appears to be inforamtion about Alice.
+// //  * 
+// //  * 7. How would you log Jill Schmoe's name to the console using the `users` array?
+// //  *? console.log(users[1]) Is wrong
+
+// Ans: console.log(users[1].name)
+
+https://scrimba.com/c/cWQVz3fV 2:57
+
+//  QUIZ FOR 4 LOOPS 
+//  * 
+//  * 1. Why do programmers care about loops? What are they good for?
+//  * We care because they allow for less repitition of code. They are good for iteritering code that is going to be repeated over many times with the same code.
+
+ANS: Allow a programmer to run the same code many times.
+//  * 
+//  * 2. In a for loop, what are the 3 main parts that go into the parentheses?
+for(i =0; i<10; i++)
+1st part: intialized variables
+2nd: condition telling loop whether it should run one more time
+3rd part; Final code that we want to run at the end of the loop 
+//  * 
+//  * 
+//  * 3. Write a loop that logs the numbers 15 to 50 (inclusive) to the console.
+//  
+for(i=15; i<51;i++){
+    console.log(i)
+}
+//  * ANS  
+for(var i = 15; i <= 50; i++) {
+    console.log(i)
+}
+//  * 4. Write a loop that logs the numbers 0 to 10 (inclusive) to the console, but if the number is 7, also log "It's your lucky day!"
+// // 
+// for(i=0;i=10;i++){
+//     console.log(i)
+// }
+
+// ANS: 
+
+// for(var i = 0; i <= 10; i++) {
+//     console.log(i)
+//     if(i === 7) {
+//         console.log("It's your lucky day!")  }
+
+
+
+
+
+// QUIZ 3
+// // Review - Arrays and Loops
+
+// var numbersArr = [23, 64, 20, 33, 40, 100, 30, 50, 2]
+// var petsArr = ["cat", "dog", "bird", "snake", "rabbit"]
+// var users = [
+//     {
+//         name: "joe",
+//         age: 30,
+//     },
+//     {
+//         name: "steve",
+//         age: 23
+//     },
+//     {
+//         name: "sarah",
+//         age: 39
+//     },
+//     {
+//         name: "lisa",
+//         age: 27
+//     }
+// ]
+
+
+
+// /* QUIZ
+//     1. What part of the for loop will allow you to access each individual item in an array?
+//     The second part. i< array.length
+
+//    ans   for(var i = 0;)
+//         numbersArr[i]
+
+
+//     2. What part of the for loop will need the array's length in order to run the correct amount of iterations? 2nd part. 
+
+//     ans  for(var i = 0; i < array.length)
+    
+//     3. Using the pets array, how would you write a for loop to console.log all of the pets with an "s" added to the end? Your console log's should be ( cats, dogs, birds, snakes, rabbits )
+
+//     for (i=0; i <pets.length; i++){
+//         console.log(i + 's')
+//     }
+
+//     ans for(var i = 0; i < petsArr.length; i++){
+//         console.log(petsArr[i] + "s")
+//     }
+    
+//     4. Using the numbers array, how would you write a for loop to console log only the odd numbers?
+    
+//     for(i=0; i<numbers.length; i+=3){
+//         console.log([i])
+//     }
+
+//     ans check if number is even or odd using modulus operator..
+
+//     var numbersArr = [23, 64, 20, 33, 40, 100, 30, 50, 2]
+
+//     for(var i = 0; i < numbersArr.length; i++){
+//         if(numbersArr[i] % 2 ===1){
+//             console.log(numbersArr[i])
+//         }
+//     }
+
+//     if current number we are on divided by 2 (aka %) has a remainder of 0 (===1), then you
+//     have found odd number and should console log it. 
+
+
+
+//     5. Using the users array, how would you write a for loop that would console log the following sentence for each user in the array. ("Hi, I am joe and I am 30 years old")
+
+//     for(i=0; i<users.length; i++){
+//         console.log('Hi I am [users.name] and I am [users.age] years old")
+//     }
+    
+//     ans    for(var i = 0; i < users.length; i++){
+//         console.log("Hi, I am " + users[i].name + " and I am " + users[i].age + " years old")
+//     }
+
+
+//     6. Using the pets array, how would you write a for loop that would console.log all the pets in
+//     reverse order?
+
+//     ans  var petsArr = ["cat", "dog", "bird", "snake", "rabbit"]
+//     for(var i = petsArr.length - 1; i >= 0; i--){
+//         console.log(petsArr[i])
+//     }
+
+
+    
+// */
+
+// SLACK QUESTIONS I ASKED TO EXPLAIN FURTHER BELOW 
+
+// I'm very confused with 2 examples of the for loops created in the loops & array assignment.
+
+// 4.  Using the numbers array, how would you write a for loop to console log only the odd numbers?
+
+// var numbersArr = [23, 64, 20, 33, 40, 100, 30, 50, 2]
+
+//     for(var i = 0; i < numbersArr.length; i++){
+//         if(numbersArr[i] % 2 ===1){
+//             console.log(numbersArr[i])
+//         }
+//     }
+
+//     ^^ In above, I don't understand %2 ===1 ? Why wouldn't it be 3? I thought odd numbers
+//     were divisible by 3 (not 2). 
+
+
+
+//     ANS:%2 === 1 means number divided by 2 has a remainder of 1.
+//     3/2 = 1 remainder 1
+//     5/2 = 2 remainder 1
+//     7/2 = 3 remainder 1
+//     9/2 = 4 remainder 1
+//     odds numbers divided by 2 have a remainder of 1
+
+//     Even == any number that's divisible by two
+// Odd == any number that is not even
+// so, in
+// 1, 2, 3, 4, 5, 6, 7, 8
+// 2, 4, 6, & 8 are all even
+// and
+// 1, 3, 5, & 7 are all odd
+// 1, 5 & 7 aren't divisible by three
+
+
+
+//     Example 6: 
+
+
+//     Using the pets array, how would you write a for loop that would console.log all the pets in reverse order?
+
+//     var petsArr = ["cat", "dog", "bird", "snake", "rabbit"]
+//     for(var i = petsArr.length - 1; i >= 0; i--){
+//         console.log(petsArr[i])
+//     }
+
+// ^^ I was confused with explanation. For first part of for loop, does this mean
+// array would start at dog? 
+
+// And then second part means ends when index of array is greater than 0? 
+
+// And then third part not sure. 
+
+
+// ANS: Alright, second one:
+// a for loop has three parts
+// ( run at the start ; conditional ; run at end of every loop )
+// the first part runs at the beginning, easy enough. We use that to declare i = endOfArray
+
+//   2. the second part is a condition: the loop runs as long as this condition is true. As long as i is greater than or equal to 0 , this condition will keep running
+
+//   3. the third part is the funnest; it's a short piece of code that runs at the END of every loop--after we finish each loop, we run that code.
+// i-- is just shorthand for i = i - i ; it decreases i by one
+
+// apply that to:
+// for(var i = petsArr.length - 1; i >= 0; i--)
+// i begins at the END of the array
+// keep running until i tries to go past the beginning of the array (which is always 0)
+// decrease i by one after each loop
+// so we start i at, say, 10, then just walk it backwards, 9,8,7....bla bla bla until we hit 0

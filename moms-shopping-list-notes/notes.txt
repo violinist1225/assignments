@@ -1,0 +1,332 @@
+Scrimba Event Listners (Not on page): https://scrimba.com/p/pG66Msa/cgq8zZsG
+
+https://coursework.vschool.io/moms-shopping-list/
+To create input box, use input tag: For example:
+<form>  <input  />  </form>     <---- input is a self-closing tag. Remember!
+
+PART 2 
+
+        <form> 
+            <input type="text"/>
+        </form>
+
+        ^^ type can equal to colors, number, etc...
+
+PART 3
+        Below is correct way of creating a input button. All components
+
+         <form> 
+            <input type="text"/>
+            <button>Submit</button>
+        </form>
+
+        When have id in html like 'form-button' and want to reference it in JS document.
+        Then should have:    const form = document[my-form]
+
+PART 4
+
+        What kind of event to use for button? Could use click, 
+        but Submit Event is far better! Why? Click Event will ONLY fire when clicked..
+        Whereas Submit will fire when clicked AND when return is hit on keyboard which
+         is nice for user! 
+
+        addEventListener MUST be attached to FORM (Not button)! Very Important!! 
+
+        form.addEventListener("submit", function(){
+    
+})
+
+^^However with this function in place, window refreshes everytime user
+ puts data into button. Which clears data...We don't want that. So, now what?
+
+    Use this: form.addEventListener("submit", function(event){
+    event.preventDefault()
+
+    
+})
+
+
+
+PART 5
+
+It html update:
+
+        <form name="my-form"> 
+            <input type="text" name="firstName"/>
+            <button>Submit</button>
+        </form>
+
+ALSO, IN HTML, Placeholder and required are 2 attributes of input. Placeholder puts text
+inside of box so user knows what to type in it....and required means some text has to
+go inside or program won't continue to run. 
+
+     <form>
+            <input type="text" placeholder="First Name" required/>
+            <button>Submit</button>
+        </form>
+
+
+In JavaScript: (Updated)
+
+    const form = document["my-form"]
+
+// Submit event
+
+form.addEventListener("submit", function(event){
+    event.preventDefault()
+    
+    const firstName = form.firstName.value     <-- (Because we want actual value to log 
+    from user hitting submit button)
+    form.firstName.value = ""    <--(This line clears out value after 
+    submit name, which is why empty string is ok b/c we want to clear out)
+})
+
+PART 6
+
+      console.log(firstName + " " + lastName)
+      ^^ This means first name, space, and last name... And when check this in the console,
+      should show first and last name that user inputted. So, a check.
+
+
+PART 7
+
+    What if didn't just want to console log input, but wanted it to show up on 
+    ITSELF (in DOM)? 3 steps below:
+
+     // 1 . <h1></h1>
+    const h1 = document.createElement('h1')
+    // 2. <h1>Harry Potter</h1>
+    h1.textContent = firstName + " " + lastName
+    // 3. Append
+    document.getElementsByTagName("body")[0].append(h1)
+})
+
+^^QUESTION: Don't understand line 3. why use index appending?
+
+8.
+
+    <form>
+            <input type="text" placeholder="First Name"/>
+            <button>Submit</button>
+        </form>
+
+        ^^ This will put First Name as text inside button, so user knows what goes in.
+
+        Other forms of input types = "number" (doesn't need placeholder - thats only for name 
+        etc) 
+        , "tel" (for telephone), 'password,' 'date,'
+        'color,' radio' 
+
+        'RADIO' gives options to select in bubbles. So, like gender (female/male)..
+
+        For example, if wanted to have gender and wanted user to select only ONE OPTION:
+
+                    <form>
+                    Male:   <input type="radio" name="gender"/>
+                    Female: <input type="radio" name="gender"/>
+                    <button>Submit</button>
+                </form>
+        
+Taking this example a little further... in HTML put:
+
+        <form name="myForm">
+            Male:   <input type="radio" name="gender" value="Male"/>
+            Female: <input type="radio" name="gender" value="Female"/>
+            <button>Submit</button>
+        </form>
+
+        This console checks radios:  console.log(form.gender(name of input).value)
+})
+
+
+EXAMPLE FLESHED OUT FOR CHECKBOXES IN HTML:
+
+            Which are your favorite? Select all that apply:
+
+ Which are your favorite? Select all that apply:
+            Movies: <input type="checkbox" value="Movies" name="entertainment"/>
+            Games: <input type="checkbox" value="Games" name="entertainment"/>
+            <button>Submit</button>
+
+9.  CHECKBOXES: User doesn't give us information. 
+
+Which are your favorite? Select all that apply:
+            Movies: <input type="checkbox"/>
+            Games: <input type="checkbox"/>
+
+
+10. Extra Notes saved. Not sure what they mean:
+
+// const checkedInputs = []
+    
+    // for(let i = 0; i < form.entertainment.length; i++){
+    //     if(form.entertainment[i].checked){
+    //         checkedInputs.push(form.entertainment[i].value)
+    //     }
+    // }
+    
+    // console.log(checkedInputs)
+    
+    
+    // Select Option inputs
+    
+    console.log(form.city.value)
+    
+    
+})
+
+
+Next EXAMPLE COPIED AND PASTED (Unsure of what they mean)
+
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        
+        <form name="myForm">
+            Male:   <input type="radio" name="gender" value="Male"/>
+            Female: <input type="radio" name="gender" value="Female"/>
+            
+            Which are your favorite? Select all that apply:
+            Movies: <input type="checkbox" value="Movies" name="entertainment"/>
+            Games: <input type="checkbox" value="Games" name="entertainment"/>
+            
+            <select>
+                <option>Paris</option>
+                <option>New York</option>
+                <option>Chicago</option>
+            </select>
+            
+            
+            <button>Submit</button>
+        </form>
+        
+        
+        
+        <script src="index.js"></script>
+
+
+QUESTIONS 
+
+1. Need to clone assigment 
+
+2. Last example on forms part 1. Explain append line? Why is index 0 if there is no array?
+
+      // 1 . <h1></h1>
+    const h1 = document.createElement('h1')
+    // 2. <h1>Harry Potter</h1>
+    h1.textContent = firstName + " " + lastName
+    // 3. Append
+    document.getElementsByTagName("body")[0].append(h1)
+})
+
+3. Help with Toggle method. adding or removing class names. Must use CLASSLIST to do this.
+
+https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+^^Has examples 
+
+4. 
+
+
+
+
+NOTES I LEARNED FROM MISTAKES:
+
+1. var text = document.getElementById('header').textContent
+    
+document.getElementById('paragraph').textContent= "text"
+
+^^I could use getelementbyid, but "text" should not be quoted as text, or will take
+string and replace specifically with that. Vs. var text. So, leave it unquoted to replace
+with var text content! 
+
+VS. 
+
+var text = document.querySelector("#header").textContent
+document.querySelector("#paragraph").textContent = text
+
+
+2. 
+
+EXAMPLE: Wanted to create new pargragh (Stricly in Javascript) after unordered list.
+Where I went wrong?? I needed to append to BODY parent Element, because if appended to list
+it would appear on list. So, body is closest parent elememnt to attach it to. And body
+is a unique Element, so don't need to create id. Just cite document.body.append(variable)
+
+My Version: 
+var p1 = document.createElement('p')
+p1.textContent = "Maya the Bee "
+myList.append.p1
+
+Correct Version: 
+
+var newP = document.createElement("p")
+newP.textContent = "V School rocks!"
+document.body.append(newP)
+
+
+
+3. How to Use FOR LOOP for arrays?
+
+var powerRangers = [
+    "Jason Lee Scott", 
+    "Kimberly Hart", 
+    "Zack Taylor", 
+    "Trini Kwan", 
+    "Billy Cranston"
+]
+
+(Remember rangerslist is empty unordered list in HTML)
+
+var rangersList = document.getElementById("rangers")
+var newName = document.createElement("li")
+newName.textContent = powerRangers[0]
+rangersList.append(newName)
+
+HOW TO TURN ABOVE INTO 4 LOOP, SO THAT DON'T HAVE TO REPEAT LINES 283-285.
+
+var rangersList = document.getElementById("rangers")
+
+for (var i = 0; i < powerRangers.length; i++) {
+    var newName = document.createElement("li")
+    newName.textContent = powerRangers[i]
+    rangersList.append(newName)
+}
+
+DO ABOVE BUT USING INNERHTML INSTEAD
+
+for (var i = 0; i < powerRangers.length; i++) {
+    rangersList.innerHTML += "<li>" + powerRangers[i] + "</li>"
+}
+
+
+NEXT PART EXAMPLE: TURN RANGER LIST INTO OBJECTS. AND GET THEM TO DISPLAY COLORS
+
+var powerRangers = [
+    {name: "Jason Lee Scott", color: "Red"}, 
+    {name: "Kimberly Hart", color: "Pink"}, 
+    {name: "Zack Taylor", color: "Black"}, 
+    {name: "Trini Kwan", color: "Yellow"}, 
+    {name: "Billy Cranston", color: "Blue"},
+    {name: "Tommy Oliver", color: "Green"}
+]
+
+FIGURE OUT LATER...DON'T KNOW HOW?
+
+5. Add Event Listners
+
+var button = document.getElementById("button")
+
+function handleButtonClick() {
+    console.log("The button was clicked!")
+}
+
+button.addEventListener("click", handleButtonClick())
+
+
+ANOTHER EXAMPLE BELOW ON HOW TO COMBINE 
+
+document.getElementById("header").addEventListener("dblclick", function() {
+    document.body.style.backgroundColor = "firebrick"
+})
