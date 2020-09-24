@@ -1,0 +1,45 @@
+localStorage.setItem("name", "steve") (Will show as input (name) and steve )
+localStorage.setItem("friends", ["mark", "tina", "jay"])  <<So can save as array. Doesn't work like this!
+
+JSON = Javascript Object Notation (This is the language that Application on Chrome Tools wants, not javascript.
+Trying to save it as javascript, but local storage wants JSON)
+
+Instead for array above: localStorage.setItem("friends", JSON.stringify(["mark", "tina", "jay"]))
+
+Example: localStorage.setItem("adress", JSON.stringify({street: "123 street", city: "SLC" }))
+For complex datatypes, JSON stringify needs to be used as converter
+
+
+If want to retrieve a value in Chrome Tools local storage:
+const name = localStorage.getItem("name")
+const age = localStorage.getItem("age")
+console.log(age)
+
+-----
+If wanted to retrive value from array of friends above, need to below (Otherwise will have double quotes outside 
+of array)
+const friends = JSON.parse(localStorage.getItem("friends"))
+console.log(friends[0])
+----
+If want to remove item:
+
+localStorage.removeItem("age")
+
+--
+
+const formCheep = document.cheep
+    formCheep.addEventListener('submit', (event) =>{
+    event.preventDefault()
+    let  cheepCaught = parseInt(document.cheep.cheepy.value)
+    let result = cheepCaught * 11
+    total += result 
+    totalCoin.textContent = total 
+})
+
+<div class="g"> Goombas
+                <form name ='goomba'>
+                    <p>Price: 5 Coins</p>
+                    <input type="number" name='gcaught' placeholder="Number of Goombas Caught?" required/>
+                    <button type='Submit'> Total Cost Goombas </button>
+                    <img src="https://static.turbosquid.com/Preview/2014/05/25__04_05_47/GOOMBA.pnge008e80c-02f7-46ab-8e66-d497750cd0feOriginal.jpg" alt= srcset="" width=80px>
+                </form>

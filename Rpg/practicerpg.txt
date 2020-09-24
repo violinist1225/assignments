@@ -1,0 +1,247 @@
+const readline = require('readline-sync')
+let isAlive = true;
+let hasWon = false;
+console.log('hello, welcome to the game')
+const username = readline.question('What is your name?')
+// Hero
+function Hero (name, hp, ap){
+    this.name = name;
+    this.hp = hp;
+    this.ap = ap;
+    this.inventory = ['stick']
+}
+const hero = new Hero(username, 100, 30)
+// Enemy
+function Enemy (name, hp, ap, item){
+    this.name = name;
+    this.hp = hp;
+    this.ap = ap;
+    this.item = item;
+}
+const orc = new Enemy('Orc', 80, 10, 'bat')
+const godzilla = new Enemy('Godzilla', 10, 1000, 'fire')
+const golem = new Enemy('Golem', 500, 5, 'ring')
+const enemies = [orc, godzilla, golem]
+while(isAlive && !hasWon){
+    const action = readline.keyIn('Would you like to walk [w], print inventory [p], or quit [q]?', {limit: 'wpq'})
+    if(action === 'w'){
+        walk()
+    }else if (action === 'p'){
+        // print
+       printInventory()
+    }else {
+        isAlive = false
+        console.log('You quit the game')
+    }
+}
+function walk (){
+    let random = Math.floor(Math.random()* 3)
+    if(random === 0){
+        enemyEncounter()
+    }else {
+        console.log('You did not find an enemy keep walking')
+    }
+}
+function printInventory(){
+    console.log(`your inventory is ${hero.inventory}`)
+}
+function enemyEncounter (){
+    let enemy = enemySelect()
+    console.log(`You encountered ${enemy.name}`)
+    let action = readline.keyIn('Would you like to fight [f], or run [r]?', {limit: 'fr'})
+    if(action === 'r' ){
+        if(Math.random() > .5){
+            run()
+        }else{
+            console.log('sorry you were too slow')
+            hero.hp -= 10
+            console.log(`
+                ${enemy.name} hit ${hero.name} for 10 points. 
+                ${hero.name}, your hp is now ${hero.hp}
+            `)
+            fight(enemy)
+        }
+    }else {
+        fight(enemy)
+    }
+}
+function enemySelect (){
+    let random = Math.floor(Math.random()*enemies.length)
+    return enemies[random]
+}
+function fight (enemy){
+    while(hero.hp > 0 && enemy.hp > 0){
+        let heroAttack = Math.floor(Math.random() * hero.ap)
+        let enemyAttack = Math.floor(Math.random() * enemy.ap)
+        enemy.hp -= heroAttack
+        hero.hp -= enemyAttack
+        console.log(`
+        ${hero.name} was hit by ${enemy.name}. Your hp is now ${hero.hp}
+        ${enemy.name} was hit by ${hero.name}. Their hp is now ${enemy.hp}
+        `)
+    } 
+    if(hero.hp > 0){
+        console.log(`congratulations ${hero.name}, you defeated ${enemy.name}`)
+        hero.inventory.push(enemy.item)
+        console.log(`You earned a new ${enemy.item}`)
+        let index = enemies.findIndex((myEnemy)=> myEnemy.name === enemy.name)
+        enemies.splice(index, 1)
+        if(enemies.length === 0){
+            hasWon = true;
+            console.log('congrats you won!')
+        }
+    }else{
+        isAlive = false
+        console.log('unfortunately you died, GAME OVER')
+    }
+}
+function run () {
+    if(enemies.length === 3){
+        hero.hp -= 20
+        console.log(`
+            ${hero.name} tried to run away, you lose 20 points this first time, but you still got away.
+        `)
+    }else {
+        console.log('you got away safely')
+    }
+}
+
+
+BELOW IS ANOTHER WAY OF SPLICING OUT ENEMY 
+console.log(`You earned a new ${enemy.item}`)
+    let index = enemies.findIndex((myEnemy)=> myEnemy.name === enemy.name)
+    enemies.splice(index, 1)
+
+ALL MY SCRAP COPIED BELOW:   
+
+//     thisMeansWarLoop(currentEnemy);
+//   else {
+//     console.clear();
+//     ask.keyInPause("You are one lucky hiker today! No enemies in your path. Yet...");
+//   }
+// }
+
+
+
+function runOne(enemy) {
+    ask.keyInPause(
+      `With adrenaline pumping and fear overtaking your body, you RUN as fast as you can away from ${enemy.type}BUT trip over your boot's laces and injure your knees. The hot desert ground burns your legs also!! You have escaped ${enemy.type} BUT just lost 25 healthStat points due to this injury.`
+    );
+  
+    player.healthStat = player.healthStat - 25;
+    ask.keyInPause("With the 25 point deduction, your current  health stat is now " + player.healthStat);
+
+
+
+    
+  
+  function runTwo() {
+    //Have to log the name of the current enemy with highest hp
+    let currentHighestHp = 0
+  
+    let highestIndex 
+    console.log(arrayOfEnemies)
+    for (let i = 0; i < arrayOfEnemies.length; i++) {
+      if (currentHighestHp < arrayOfEnemies[i].healthStat) {
+        currentHighestHp = arrayOfEnemies[i].healthStat 
+        highestIndex = i
+      }
+    }
+     enemy = arrayOfEnemies[highestIndex]
+     
+     console.log(`You have run away from your challenge way too many times and have only embolden your enemies! You  are now forced to fight the strongest enemy with the current highest health stat ${enemy.type} for your cowardice!`)
+
+     thisMeansWarLoop(enemy)
+     
+     if (enemy.healthStat <= 0) {
+      console.clear();
+      ask.keyInPause(`${enemy.type} wobbles to the ground and takes it's last breathe....Then screams:  
+      NoooooOOOO! You have defeated me today, but rest assured the others will finish what I started here! You then hear a huge PLOP to the ground sound`);
+      openInventory()
+   
+    }  
+
+    if (player.healthStat <= 0) {
+      console.clear();
+      ask.keyInPause(`${enemy.type} watches with glee as you take your final step. You have died at the fate of the desert. Game Over, ${name}`);
+      iaAlive = false
+    
+  }
+
+  if (enemy.healthStat <= 0) {
+    console.clear();
+    ask.keyInPause(`${enemy.type} wobbles to the ground and takes it's last breathe....Then screams:  
+    NoooooOOOO! You have defeated me today, but rest assured the others will finish what I started here! You then hear a huge PLOP to the ground sound`);
+    openInventory()
+  }
+  
+
+    if (arrayOfEnemies.length === 0){
+      console.log(`CONGRATS! You have made  it through the whole trail, ${name}!! Congratulations. The grueling heat.
+     The mean and territorial enemies. Beyond all that you prevailed this hard Joshua Tree Killer Trail. Pat 
+     yourself on the back and replenish your electrolytes!`)
+
+      hasWon = true
+      inventoryIsOpen = false
+      
+    }
+
+---
+
+
+// let playerRunSuccess = false;
+//   console.log(player.healthStat && enemy.healthStat > 0  && !hasWon && !playerRunSuccess)
+//   while (player.healthStat > 0 && enemy.healthStat > 0  && !hasWon && !playerRunSuccess) {
+//     const playerFightChoice = ask.keyIn(`Do you want to Fight ${enemy.type} [f], Run for your life [r], OR quit [q]?`,
+//       { limit: "frq" }
+//     );
+
+//     if (playerFightChoice === "f") {
+//       hikerAttack(enemy);
+//       enemyAttack(enemy);
+//     } else if (playerFightChoice === "r") {
+//       if (player.enemiesFought === 0) {
+//          runOne(enemy)
+//          arrayOfEnemies.push(enemy)
+//          enemy = generateEnemy()
+//         playerRunSuccess = true;
+//          player.enemiesFought++
+//       } else {
+//         console.log(arrayOfEnemies)
+//         console.log('Are we about to runTwo')
+//          runTwo();
+//       }
+//     } else if (playerFightChoice === "q") {
+//       ask.keyInPause(
+//         "The great sages have said there is no right or wrong choice. You. Have. Self. Terminated. Goodbye."
+//       );
+//       hasWon = true 
+//     }
+//   }
+
+
+   
+
+
+
+
+   // console.clear();
+    // ask.keyInPause(`How strong-minded you are, walking this challenging trail in Now 105 degree weather. 
+    // You continue happily along this trail when a formidible enemy begins stalking you. ${name}, 
+    // You are in SERIOUS trouble!!! ${currentEnemy.type} is stalking you. Oh NOOOO...Prepare yourself 
+    // for survival NOW!`)
+  
+
+  ---
+
+  
+  if (randomChance === 0) {
+    return arrayOfEnemies[0]
+  } else if (randomChance === 1) {
+    return  arrayOfEnemies[1]
+  } else if (randomChance === 2) {
+    return  arrayOfEnemies[2]
+  } else {
+    return arrayOfEnemies[3]
+  }
+}

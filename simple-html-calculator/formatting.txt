@@ -1,0 +1,16 @@
+Formatting Notes:
+
+IN JAVASCRIPT:
+
+if a line has an opening curly, find that blocks closing curly and make sure both lines have the 
+same level of indentation.
+A lines that are nested one layer in that block will get just one more indentation.
+
+
+*********************
+
+IN HTML:
+
+ In HTML every elements closing and opening tag will be on the same level of indentation. 
+ Each direct child element will be on the same level as their siblings, and each grandchild on 
+ the same level as THEIR siblings and cousins

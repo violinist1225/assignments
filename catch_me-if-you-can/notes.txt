@@ -1,0 +1,33 @@
+# Error Handling
+    
+    ## Keywords
+        * try
+        * catch
+        * finally
+        * throw
+        * Error
+
+        
+
+
+var input = "";
+
+try {
+  if(input == "") {
+    throw "Input can not be empty";
+  } else if(input.length > 5) {
+    throw "Input is to big";
+  } else {
+    console.log("You code runs fine!");
+  }
+} catch(err) {
+  console.log(err);
+} finally {
+  console.log("Runs no matter what");
+  console.log("And the input was " + input);
+}
+
+
+//Javascript needs try, catch, and finally keywords to properly run error handling code.
+
+//try {} <-- tests blocks of code. will run if code contains no errors. Need catch directly after. 

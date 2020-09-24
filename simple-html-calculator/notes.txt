@@ -1,0 +1,110 @@
+ https://coursework.vschool.io/simple-calculator/
+
+ 
+// const firstNumber = form.firstNumber.value
+// form.firstNumber.value = ""
+
+// const secondNumber = form.secondNumber.value
+// form.secondNumber.value = ""
+
+EXAMPLE DONE IN SCRIMBA BELOW FOR JS FILE 
+
+const form = document['my-form']
+form.addEventListener('submit', function(event) {
+event.preventDefault()
+
+
+const firstName = form.firstName.value
+form.firstName.value = ""
+
+const lastName = form.lastName.value
+form.lastName.value = ""
+
+//What if wanted first and last name to show up on page itself on DOM (Instead of console logging)? 3 Step Process Below
+
+// 1 . <h1></h1>  Create Element 
+const h1 = document.createElement('h1')
+// 2. <h1>Harry Potter</h1>
+h1.textContent = firstName + " " + lastName
+// 3. Append (to the DOM to showup...so use body tag for sake of example)
+document.getElementsByTagName("body")[0].append(h1)
+
+
+const add = document.getElementById('add')
+const sub = document.getElementsById('subtract')
+const multiply = document.getElementsById('multiply')
+const equal = document.getElementsById('equal')
+const answer = document.getElementsById('answer')
+
+
+-------
+const math = (num1, num2, operation) => {
+    operation === "add" ? return num1+num2 : operation === "subtract" ? 
+    return num1-num2 : operation === "multiply" ? return num1*num2 : return num1/num2
+}
+and then make 4 buttons that each call the function with a different 3rd argument
+
+====================================
+
+
+
+
+
+------------------------------------------------------------------------
+ <input type="text"/>    <--- THIS IS LIKE MAKING A CLASS, PUTTING THE INPUT TYPE. 
+
+
+<form>
+    <p>I like:</p>
+    <br>
+    <label><input type="checkbox"/>Cats</label>
+    <br>
+    <label><input type="checkbox"/>Dogs</label>
+    <br>
+    <label><input type="checkbox"/>Unicorns</label>
+    <br>
+    But my favorite is:
+    <br>
+    Dogs <input type="radio" name="favorite"/>
+    Cats <input type="radio" name="favorite"/>
+    Unicorns <input type="radio" name="favorite"/>
+</form>
+
+*In Above example, checkbox allows multiple options to be chose, whereas radio allows only one choice. 
+
+
+
+* Submit allows user to press enter, instead of having to use a mouse. 
+
+
+
+--------------------------------------
+BELOW IS HOW TO CLEAR OUT VALUE AFTER SUBMIT BUTTON IS HIT:
+
+const name = form.firstName.value
+form.firstName.value = ""
+
+--------------------------------------
+
+
+
+
+
+        <!-- <form name="words">
+            <input name="noun" placeholder="noun"/>
+            <input name="adverb" placeholder="adverb"/>
+            <input name="verb" placeholder="verb"/>
+            <button>Submit</button>
+        </form>
+
+        document.words.addEventListener("submit", function(e){
+            e.preventDefault()
+          
+            var noun = document.words.noun.value
+            var adverb = document.words.adverb.value
+            var verb = document.words.verb.value
+          
+            alert("The " + noun + " did" + adverb + " " + verb + " in it's home")
+          }) -->
+
+

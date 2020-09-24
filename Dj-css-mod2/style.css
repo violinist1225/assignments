@@ -1,0 +1,134 @@
+/* https://coursework.vschool.io/dj-css/ */
+
+#big-box{
+    width: 300px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     /* align items goes with display flex. centers on y axis. Justify content centers on x axis */
+    background-color: aquamarine;
+    margin: auto;
+    border: 1px dotted black;
+    box-shadow: 10px 10px 5px 0 #999;
+    border-radius: 10%;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; 
+}
+#big-box:hover {
+    box-shadow: 5px 5px 5px 0 plum;
+    border-radius: 15%;
+    background-color: cyan;
+    border: 2px solid black;
+    
+}
+
+#box1{
+    width: 200px;
+    height: 200px;
+    background-color: blueviolet;
+    margin: auto; //good for centering items. Or flexbox 
+    border: 1px dotted black;
+    box-shadow: 10px 10px 5px 0 #999;
+    border-radius: 10%;
+    transition: all 1s ease-in-out; 
+
+}
+#box1:hover{
+    box-shadow: none;
+    border-radius: 0;
+    background-color: coral;
+    height: 300px;
+    width: 350px;
+
+}
+
+
+#box2{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(39, 179, 58);
+    margin: auto;
+    border: 1px dotted black ;
+    box-shadow: 10px 10px 5px 0 #999;
+    border-radius: 10%;
+    transition: all 0.3s ease-in-out; 
+
+}
+#box2:hover{
+    box-shadow: none;
+    border-radius: 60%;
+    background-color: orchid;
+    height: 500px;
+    width: 400px;
+    /* position: absolute; */
+    
+}
+
+
+#box3{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(179, 169, 39);
+    margin: auto;
+    border: 1px dotted red ;
+    box-shadow: 10px 10px 5px 0 #999;
+    border-radius: 10%;
+    transition: all 1s ease-in-out; 
+
+
+}
+#box3:hover{
+    box-shadow: blue;
+    border-radius: 35%;
+    background-color: rgb(126, 116, 116);
+    opacity: initial;
+    height: 200px;
+    
+}
+
+#box4{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(126, 116, 116);
+    margin: auto;
+    border: 1px dotted purple;
+    box-shadow: 10px 10px 5px 0 #999;
+    border-radius: 10%;
+    transition: all 0.5s ease-in-out; 
+
+}
+#box4:hover{
+    box-shadow: ghostwhite;
+    border-radius: 50%;
+    background-color: oldlace;
+    padding-left: 10px;
+    width: 300px;
+
+    
+}
+
+#box5{
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    margin: auto;
+    border: 1px dotted brown ;
+    box-shadow: 10px 10px 5px 0 #999;
+    border-radius: 10%;
+    transition: all 1s ease-in-out; 
+
+
+
+}
+
+
+#box5:hover{
+    
+    box-shadow: none;
+    border-radius: 30%;
+    background-color: purple;
+
+}
