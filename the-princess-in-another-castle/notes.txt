@@ -1,0 +1,6 @@
+//In set interval function, pass in function as an argument, NOT call it (with ()) ... 
+
+
+
+
+
