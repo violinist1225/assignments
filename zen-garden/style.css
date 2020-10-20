@@ -1,0 +1,347 @@
+@font-face{
+    font-family: 'librebaskerville';
+    font-weight: 800;
+    src: url('https://fonts.gstatic.com/s/librebaskerville/v7/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNZaxMaC82U.woff2') format('woff');
+}
+
+@font-face{
+    font-family: 'JuliusSansone';
+    src: url('https://fonts.gstatic.com/s/juliussansone/v8/1Pt2g8TAX_SGgBGUi0tGOYEga5WOwnsXy6KHHg.woff2') format('woff');
+}
+
+@font-face {
+    font-family: "Verde Moderna";
+    src: url("verdemoderna.woff") format("woff");
+}
+
+
+
+*{
+    font-size: 17px;
+    padding: 0px;
+    margin: 0px;
+    
+}
+
+body {
+    width: 100vw;
+}
+
+p{
+    line-height: 3em;
+    color:  #c0cac3;
+    opacity: 100%;
+}
+
+/* .title-container {
+    margin-left: 10px;
+} */
+
+.box4-inner{
+    width:60%;
+    margin-top: 75px;
+    
+}
+
+.list-item{
+
+    font-size: 20px;
+    border-bottom: 1px solid #485548;
+    padding: 10px 70px 10px 10px;
+}
+
+.list-item a:link { 
+    text-transform: uppercase;
+    font-size: 20px;
+    font-family: 'JuliusSansone', sans-serif; 
+}
+
+p{
+   line-height: 3em;
+   color: #325050;
+}
+
+a{
+    text-decoration: none;
+    font-size: 15px;
+    font-family: 'JuliusSansone';
+
+}
+
+/* a: hover{
+
+} */
+.title-one{
+    color:2e484c;
+    font-size: 27px;
+    font-family: 'JuliusSansone';
+    font-weight: 200;  
+    margin: 15px 0px
+
+}
+
+.cursive{
+    font-family: 'JuliusSansone';
+    font-style: italic;
+    /* font-weight: 400; */
+    color: white;
+    /* justify-content: space-around; */
+    /* position: relative; */
+    /* top: 60px; */
+    font-size: 20px;
+    /* text-align: center; */
+    /* right: 70px;  */
+}
+
+.smallerbox1{
+    height: 62px;
+    width: 197px;
+    
+    background-color: #e8dddd;
+    opacity: 25%;
+}
+
+
+.smallerbox2{
+
+  
+    background-color: #e8dddd;
+    opacity: 25%;
+    border: 3px solid pink;
+    height: 56px;
+    width: 68px;
+
+}
+
+
+
+.para{
+    font-size: 20px;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    
+}
+
+.header{
+    display: grid;
+    width: 100vw;
+    height: 300px;
+    grid-template-columns: 2fr 1fr;
+    grid-row: 1/2;
+    grid-column: 1/3;
+    background-image: url(http://www.csszengarden.com/214/huntington.jpg);
+    /* border: 3px black solid; */
+    
+}
+
+.box1{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+    
+.box2{
+    grid-column: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box3{
+  
+    
+    height: auto;
+    padding: 75px 100px 50px 100px;
+    font-family: librebaskerville;
+   
+} 
+
+.authors{
+    font-size: 13px;
+   
+    
+}
+
+.authors-two{
+    font-style: "librebaskerville";
+
+}
+
+
+.by{
+    border-top: solid 1px #d9e3dc;
+    color: #616857;
+    font-style: italic;
+    font-family: librebaskerville; 
+    font-size: 10px;
+}
+
+.box4{
+    background-color: #c0cac3;
+    display: flex;
+    justify-content: flex-start;
+   flex-direction: column;
+   align-items: center;
+
+   }
+
+
+
+.box5{
+   
+    background-image: url(http://www.csszengarden.com/214/bamboo.png);
+    background-color: rgba(138,188,159,0.5);
+    padding: 47px 68px;
+
+}
+
+.box6{
+    background-color: rgba(138,188,159,0.5);
+    background-image: url(contours-opaque.png), url(gridlines-opaque.png), url(bamboo.png);
+    background-repeat: repeat, repeat, no-repeat;
+    display: flex;
+    justify-content: flex-start;
+   flex-direction: column;
+   align-items: center;
+   grid-column: 2/3;
+   grid-row: 3/4;
+ 
+ 
+}
+
+
+
+.box6-inner{
+    font-size: 20px;
+    padding: 10px 70px 10px 10px;
+   
+}
+
+.box6-between-line{
+    border-bottom: 1px solid #485548;
+    border-top: 10px;
+}
+
+.box7{
+  
+    background-color: white;
+    padding: 50px 70px;
+  
+
+}
+
+.box7-spacing{
+    line-height: 1.7em;
+    font-size: 20px;
+    margin: 0px 0px 20px 0px;
+
+}
+
+.box8{
+ 
+    background-color: #bbbebe;
+   
+    
+
+}
+.box9{
+ 
+    height: 310px;
+    width: 100%;
+    grid-column: 1/3;
+    /* border: 1px black dotted; */
+    background-image: url(http://www.csszengarden.com/214/huntington.jpg);
+}
+
+.box10{
+    grid-column: 1/3;
+    display: flex;
+    height: 191px;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #325050;
+    font-family: "Verde Moderna";
+    width: 100vw;
+    margin: 0px;
+    
+  
+}
+
+
+/* Below denotes selecting all children of box 10 (span tags) and adjusting their CSS */
+.box10 > span {
+    font-size: 67px;
+
+}
+
+
+
+ .icon-html { 
+    font-family: "Verde Moderna";
+}
+
+
+
+@media only screen and (max-width: 600px){
+
+    .container {
+        /* width:  */
+        grid-template-columns: 1fr;
+    }
+
+    .header { 
+        grid-column: 1 / -1;
+    }
+
+
+    /* .item { 
+        grid-column: -1 / span 3;
+    } */
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        /* display: grid;
+        grid-template-columns: 2fr 1 fr;
+        grid-template-rows: 2fr 1 fr; */
+        width: 400px;
+
+    }
+
+}
+
+
+@media only screen and (min-width: 992px){
+
+    .container{
+        width: 
+    }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
