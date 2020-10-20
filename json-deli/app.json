@@ -1,0 +1,120 @@
+
+{
+    "data-appetizers": [
+    
+{
+    "name": "garden salad",
+    "ingredients": ["lettuce", "cherry tomatoes", "red onions", "cucumbers" ]  ,
+    "description": "chef salad  made from locally sourced ingredients"
+}
+,
+{
+    "name": "air fried wings",
+    "ingredients":   ["organic chicken wings", "sea salt", "black pepper", "lemon pepper", "olive oil"] ,
+    "description": "8 wings lightly fried in olive oil in an air fryer "
+}
+,
+{
+    "name": "hummus",
+    "ingredients":  ["chickpeas", "water", "sea salt"]   ,
+    "description": "organic chickbeans blended to a smooth consistency"
+} 
+    ]
+
+,
+
+
+    "data-cold-sandwiches": [
+{   "name": "better than subway/s veggie delite",
+    "ingredients": ["olives", "lettuce", "jalepenos", "Non-GMO tomatoes", "fresh baked sourdough bread", "jackfruit", "vegan cheese"],
+    "description": "all locally sourced ingredients to make this insanely delicious vegan sandwhich"
+    
+}
+,
+{
+    "name": "turkey club",
+    "ingredients": ["Non-nitrate roast turkey", "cranberry bread", "lettuce and tomato", "light jalepeno mayo"]    ,
+    "description": "delicious turkey sandwhich"
+}
+,
+{
+    "name": "beef bologna",
+    "ingredients": ["white pan bread", "non-nitrate beef", "lettuce and tomato"]    ,
+    "description": "delicious beef bologna sandwhich"
+}
+
+    ]
+,
+
+
+    "data-hot-sandwiches": [
+{
+    "name": "grilled cheese",
+    "ingredients": ["provolone cheese", "sourdough bread", "pepper jelly"]    ,
+    "description": "The best darn grilled cheese you've had!"
+}
+,
+{
+    "name": "vegan grilled cheese",
+    "ingredients": ["vegan provolone cheese", "sourdough bread", "pepper jelly"]    ,
+    "description": "The best darn vegan grilled cheese you've ever had!"
+}
+,
+{
+    "name": "turkey melt",
+    "ingredients": ["non-nitrate roast turkey breast", "french bread", "cheddar cheese", "light mayo"]    ,
+    "description": "Best melt you've had!"
+}
+    ]
+
+    ,
+
+
+"data-desserts": [
+
+{
+    "name": "coder/s brownies",
+    "ingredients": ["flour", "lots of dark chocolate", "cane sugar", "eggs", "butter"]    ,
+    "description": "loaded with lots of chocolate, guaranteed to satisfy taste buds and give high energy rush!"
+}
+,
+{
+    "name": "pudding",
+    "ingredients": ["milk", "cocoa powder", "sugar"]    ,
+    "description": "creamy homemade pudding dessert"
+}
+,
+{
+    "name": "sweet potato pie slice",
+    "ingredients": ["butter crust", "yams", "sugar", "evaporated milk"]    ,
+    "description": "A taste of the south in Silicon Valley arrives!"
+}
+    ]
+,
+
+
+"data-bevereages": [   
+{
+    "name": "bottled well water",
+    "ingredients":  ["sourced from mountains"],
+    "description": "best water ever!"
+}
+,
+
+{
+    "name": "cane sugar soda",
+    "ingredients": ["cane sugar", "filtered water", "carbonation overload"]    ,
+    "description": "all natural soda"
+
+}
+,
+
+{
+    "name": "cranberry juice",
+    "ingredients":  ["early Thanksgiving cranberries", "cane sugar", "filtered water", "no other juice fillers!"]   ,
+    "description": "best cranberry juice ever!"
+}
+    ]
+
+}
+    

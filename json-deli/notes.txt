@@ -1,0 +1,5 @@
+const appet = ['garden salad', 'air fried wings', 'hummus']
+const coldSand= ['better than subway/s veggie delite', 'turkey club', 'beef bologna']
+const hotSand = ['grilled cheese', 'vegan delite grilled cheese', 'turkey melt']
+const desserts = ['coder/s brownies', 'pudding', 'sweet potato pie slice']
+const drinks = ['bottled water', 'cane sugar soda', 'cranberry juice']
