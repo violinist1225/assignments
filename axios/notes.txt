@@ -1,0 +1,266 @@
+https://cdnjs.com/libraries/axios
+
+https://coursework.vschool.io/v-schools-todo-api-documentation/
+
+-------
+Ternary Operator Example (Part of conditionals... if first option isn't truthy, then executes second option after colon)
+
+let price = 10.5;
+let day = "Monday";
+
+day === "Monday" ? price -= 1.5 : price += 1.5;
+
+-----
+Example:
+
+axios.get("https://api.vschool.io/scrimbalessons/todo") <-- this uses a promise, so need then and catch methods 
+    .then()  Means sending back data well and what we requested. 
+    .catch() if there's an error
+
+    ------
+
+Shane's Notes:
+
+const form = document.theform
+    /* THIS is what grabs the form */
+const inputElement = document.theform.newtodo
+    //Grabs the specific form named 'newtodo' 
+    /* this grabs the input element where they type in the new todo*/
+const apiUrl = "https://api.vschool.io/mayapurcell/todo"
+    //stores api link in variable so it doesn't have to be retyped
+const listElem = document.getElementById("list")
+    /* grabs the unordered list element where the todos will be displayed*/
+form.addEventListener("submit", addTodo);
+// unsure what this line is doing? No code for this event listener 
+/* the code for the event listener is on the next line (addTodo). 
+The confusion might be because we're using the "submit" event on the form rather than the "click" event on the 
+button. They are functionally mostly the same, but doing it this way allows the event to be triggered in other
+ ways, like pressing enter*/
+function addTodo(e) {
+    e.preventDefault();
+    //prevents page from refreshing 
+    const todoObj = {
+        title: inputElement.value
+            // variable stores information we want in the object - in this case 'title' 
+    }
+    inputElement.value = ""
+        // clears out input after it's been captured in above line. Otherwise, if this step is not done,
+         it will keep inputs repeating on the DOM.
+        /* close, but this isn't what is preventing the repeats on the DOM, this just clears the input field so
+         you can type in a new todo item without needing to delete the last one */
+    axios.post(apiUrl, todoObj)
+        //Unsure of the entirety of what the above line does. But, axios.post(a,t) grabs the axios link and gets
+         its value to post. Then, ? 
+        /* sends the new todo (which we made on lines 16-19) to the server using the post api call*/
+        .then(() => renderItems()) /* this is triggered if the api post was successful - basically: if the API was successful THEN call this annonymous arrow function, which in turn calls our renderItems function. it passes in an argument which is an object containing info about the posting from the server, but we are not using it in our function so I omitted it.   */
+        .catch(error => console.log(error))
+        /* this is triggered if the api post failes. it receives info about the reason for the failure, which we log to the console */
+}
+​
+v
+}
+​
+function clearList() {
+    while (listElem.childElementCount > 0) {
+        //while the condition of the list having children is greater than 0, remove the firstchild from list. So, that the list doesn't repeat the list again. And can simply add on extra list item, that will be appended to end of list. 
+        /* perfect */
+        listElem.firstChild.remove()
+    }
+}
+​
+function createItem(itemObj) {
+    const newLi = document.createElement('li')
+        //creates li tag in list
+        /* technically it just creates an element that doesn't do anything yet - it doesn't get added to list until line 73 */
+    newLi.textContent = itemObj.title
+        // grabs title of data from list and makes it = to newLi text content
+        /* the data isn't coming from list (assuming you meant listElem - our variable for the <ul> element on the DOM), it's comming from the array of data we got from the server as and passed to us as the data parameter of tge response argument (response = everything we might ever want to know from the server; most of which we never use | response.data = the actual data that we are requesting from the server) */
+    listElem.append(newLi);
+    //Adds a li to the list that was created in html file under id "list" to show on DOM
+    /* perfect */
+    console.log(newLi)
+        //console.log doesn't show on DOM? 
+        /* used for debuging - not needed*/
+
+
+-----------------------------------
+
+Code done with notes below
+.
+.
+.
+.
+
+const form = document.theform
+    /* THIS is what grabs the form */
+const inputElement = document.theform.title
+    /* this grabs the input element where they type in the new todo*/
+const apiUrl = "https://api.vschool.io/mayapurcell/todo"
+    //stores api link in variable so it doesn't have to be retypedcv
+const listElem = document.getElementById("list")
+    /* grabs the unordered list element where the todos will be displayed*/
+form.addEventListener("submit", addTodo);
+/* the code for the event listener is on the next line (addTodo). The confusion might be because we're using the "submit" event on the form rather than the "click" event on the button. They are functionally mostly the same, but doing it this way allows the event to be triggered in other ways, like pressing enter*/
+function addTodo(e) {
+    e.preventDefault();
+    //prevents page from refreshing 
+    const todoObj = {
+        title: inputElement.value ,
+        description: description.value       
+            // variable stores information we want in the object - in this case 'title' 
+    }
+    inputElement.value = ""
+    description.value = ""
+        /* close, but this isn't what is preventing the repeats on the DOM, this just clears the input field so you can type in a new todo item without needing to delete the last one */
+    axios.post(apiUrl, todoObj)
+        /* sends the new todo (which we made on lines 16-19) to the server using the post api call*/
+        .then(() => renderItems()) /* this is triggered if the api post was successful - basically: if the API was successful THEN call this annonymous arrow function, which in turn calls our renderItems function. it passes in an argument which is an object containing info about the posting from the server, but we are not using it in our function so I omitted it.   */
+        .catch(error => console.log(error))
+        /* this is triggered if the api post failes. it receives info about the reason for the failure, which we log to the console */
+}
+​
+​
+//rednerItems function grabs list of items again and loops over array again to show on DOM. React will provide a simpler approach to this method.
+function renderItems() {
+    axios.get(apiUrl).then(response => {x
+            /* This is correct, but I want to make sure you understand that response is NOT a keyword that indicates that the following code is a response. 
+            
+            It's just a parameter of the anonymous function that we pass into axios.get(); we could have names it anyRandomVariableName if we wanted, but response (or resp sometimes) is the general convention and accurately describes what it is. 
+            
+            The server takes our request and send back some data in the form of JSON based on if it succeeded or failed. axios then converts that JSON into a usable object for us and IF THE API CALL WAS SUCCESSFUL it passes it in as the argument to the annonymous function we made. That object is then available to us under the variable 'response' within the body of that funciton (in this case from the end of line 32 until line 50). If it was NOT successful then that annonymous function isn't called, but instead it calles the annonymous function we pass into the .catch() method and passes an error object in as the argument.
+            */
+            clearList();
+​
+            //this function clears the list so that duplicate data doesn't occur 
+            response.data.forEach(
+                //forEach loops through each item in array and performs code underneath.
+                /* do you know what is in that array? */
+                (itemObj) => {
+                    //console.log(itemObj)
+                    //unsure why this variable is being console logged?
+                    /* this was just to dubug and isn't neccessary at all*/
+                    createItem(itemObj)
+                        //unsure?
+                        /* this takes the array of data from the server and creates DOM elements out of them*/
+                })
+        })
+        .catch(error => console.log(error))
+        /* this is what axios calls if our api call failed*/
+}
+​
+function clearList() {
+    while (listElem.childElementCount > 0) {
+        //while the condition of the list having children is greater than 0, remove the firstchild from list. So, that the list doesn't repeat the list again. And can simply add on extra list item, that will be appended to end of list. 
+        /* perfect */
+        listElem.firstChild.remove()
+    }
+}
+​
+const deleteButtons = document.querySelectorAll("#deleteButton");
+deleteButtons.forEach((db) => {
+    db.addEventListener("click", fakeDB)
+})
+​
+function fakeDB() {
+    console.log("fakeDB")
+}
+//<p class="itemTitle">${itemObj.title}</p>
+function createItem(itemObj) {
+    const newLi = document.createElement('li')
+    const newP = document.createElement('p')
+    const deleteButton = document.createElement("button")
+    newP.textContent = itemObj.title
+    deleteButton.textContent = "Delete"
+    deleteButton.addEventListener("click", (e) => {
+        removeId(itemObj._id) //reference to a function, it is NOT called. Only runs when (e) runs... Would have to be between curly braces of createItem to be considred called ()..
+    })
+    newLi.append(newP, deleteButton)
+    listElem.append(newLi);
+    //creates li tag in list
+    /* technically it just creates an element that doesn't do anything yet - it doesn't get added to list until line 73 */
+    //newLi.textContent = itemObj.title
+    // grabs title of data from list and makes it = to newLi text content
+    /* the data isn't coming from list (assuming you meant listElem - our variable for the <ul> element on the DOM), it's comming from the array of data we got from the server as and passed to us as the data parameter of tge response argument (response = everything we might ever want to know from the server; most of which we never use | response.data = the actual data that we are requesting from the server) */
+    //const deleteButton = document.createElement('button')
+​
+    //Adds a li to the list that was created in html file under id "list" to show on DOM
+    /* perfect */
+    //console.log(newLi)
+    //console.log doesn't show on DOM? 
+    /* used for debuging - not needed*/
+​
+}
+​
+​
+function removeId(id) {
+    axios.delete(`${apiUrl}/${id}`)
+        .then((response) => {
+            renderItems();
+        })
+        .catch(error => console.log(error))
+}
+​
+​
+// removeId("5f971380a269067180b0f3f4")  This item was deleted
+​
+/*
+start with list of items on DOM: one, two, three
+click delete button of item two -> triggers the onClick annon function which called removeId and passes in item two's _idv -> tells server to remove two from server (at this point it is still on the DOM)
+call renderItems -> clears all items from DOM then asked server for updated item list which has one and three but not two -> get item list from server -> take each item and use it to create list item elements with the title and a delete button 
+*/
+​
+
+// //Next: Create a complted button with a checkmark box. 
+
+// newPage = () => {
+//     axios.get(apiUrl)
+//         .then(results => //need a function here to loop throguh data(results.data))
+//         .catch(error => console.log(error))
+
+// const completeButton = (action) => {
+//     let id = 0
+//     axios.get()//unusure of what to get?
+//         .then(results => completeButton2(results.data[action]._id, action))
+//         .catch(error => console.log(error))
+// }
+
+
+// const completeButton2 = (id, b) => {
+//     if (document.getElementById(`${b}`).checked === true) {
+//         axios.put(apiUrl + id, { completed: true })
+//             .then(results => newPage())
+//             .catch(error => console.log(error))
+//     } else {
+//         axios.put(apiUrl + id, { completed: false })
+//             .then(results => newPage())
+//             .catch(error => console.log(error))
+//     }   
+// }
+-------------------
+
+Mack's notes
+
+//Macks' code below 
+// function postFormValues() {
+//     let title = document.getElementById("title").value;
+//     let price = document.getElementById("price").value;
+//     let description = document.getElementById("description").value;
+//     let imgUrl = document.getElementById("img").value;
+//     postData({
+//         title,
+//         price,
+//         description,
+//         imgUrl
+//     })
+// }
+// function postData(newPost) {
+//     axios.post("https://api.vschool.io/mack/todo", newPost)
+//         .then(response => {
+//             window.location.reload();
+//             console.log(response)
+//             alert("Post Submitted");
+//         })
+//         .catch(error => console.log(error, `alert: Change incoomplete`))
+//     function addData() {
+//     }
+// }
