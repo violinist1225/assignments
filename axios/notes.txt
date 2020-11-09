@@ -264,3 +264,18 @@ Mack's notes
 //     function addData() {
 //     }
 // }
+
+
+-------
+
+HOW TO CREATE EDIT BUTTON (SHANE'S NOTES)
+
+you’re absolutely correct, line 95 is where you will add the new button to the DOM as part of the <li> element you create for each item. So just like with the delete button and the checkbox you need to do the following things:
+create a generic button element
+customize it to say “edit”
+give it functionality so that when it’s clicked (from the end user’s perspective) the title of the todo becomes editable
+#3 is achieved by:
+hiding or deleting the <p> element that holds the title of the todo
+adding or unhiding an <input> element in the same spot relative to the checkbox and buttons in the <li>
+setting the value of the <input> element to be the title of the todo from the SERVER (not from the <p> element - even though they are supposed to be the same (and probably are), always reference the server then taking data and always change the server when giving data
+Give those a go and hit me up if you get stuck. Once that is all done we’ll work on morphing the edit button into a save button and using axios to save the change on the server.
