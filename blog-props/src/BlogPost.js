@@ -4,8 +4,6 @@ import Piece from "./Piece"
 
 
 function BlogPost(props){
-
-    console.log(props.vampire, props.age)
     const information = Data.map((each, index) => {
         return(
             <Piece 

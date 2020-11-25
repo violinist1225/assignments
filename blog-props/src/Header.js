@@ -6,6 +6,8 @@ function Header(){
         <div className="headerImage">
             <Navbar />
             <div className="overlay"/>
+            <div className="title">Clean Blog</div>
+            <div className="title2">A Blog Theme by Start Bootstrap</div>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import React from "react"
 
 function Piece(props){
     return(
-        <div class="spacing">
+        <div className="spacing">
             <h1>{props.title}</h1>
             <h2>{props.SubTitle}</h2>
             <h3>{props.author}</h3>

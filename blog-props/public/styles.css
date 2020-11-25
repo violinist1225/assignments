@@ -71,7 +71,7 @@ body{
 
 .containerBlogs{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
     width: 50%;
     margin: 0 auto; 
@@ -79,4 +79,25 @@ body{
 
 .spacing{
     margin: 20px auto;
+    /* border: 2px solid red;  */
+    width: 100%;
+}
+
+.title{
+    display: flex;
+    margin: 0 auto;
+    font-size: 70px;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    margin: 150px auto;
+}
+
+.title2{
+    display: flex;
+    font-size: 20px;
+    color: white; 
+    flex-direction: column;
+    align-items: center;
+    margin: -150px auto;
 }
