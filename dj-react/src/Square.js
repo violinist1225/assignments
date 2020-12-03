@@ -1,9 +1,6 @@
 import React from "react"
+import "./style.css"
 class Square extends React.Component {
-    constructor() {
-        super()
-        
-    }
     render() {
         console.log(this.props)
         return ( 

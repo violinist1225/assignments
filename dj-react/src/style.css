@@ -1,9 +1,9 @@
-* {
+*{
     padding: 0px;
-    margin: 0px;
+    margin: 0px; 
 }
-​
-.squareContainer {
+
+ .squareContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,8 +12,8 @@
     border: 2px solid black;
     background-color: purple;
     /* justify content and align items centers items on different axises */
-}
-​
+ }
+
 .fourSquares {
     display: grid;
     grid-gap: 6px;

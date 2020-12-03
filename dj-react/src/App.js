@@ -1,6 +1,7 @@
 import React from "react"   
-// import "/styles.css"
 import Square from "./Square"
+import style from "./style.css"
+
 class App extends React.Component {
         constructor() {
                 super()
@@ -41,8 +42,8 @@ class App extends React.Component {
         } 
         render() {
             return (
-                <div className = "squareContainer" >
-                    <div className = "fourSquares" > 
+                <div className={style.squareContainer}>
+                    <div className="fourSquares"> 
                         {this.state.colors.map((color, index) => <Square color={color} key={index}/>)} 
                     </div>  
                         <button onClick={this.small}>Dj Small</button>
@@ -60,3 +61,6 @@ class App extends React.Component {
                 }
             }
  export default App;
+
+
+

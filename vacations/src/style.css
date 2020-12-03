@@ -1,0 +1,26 @@
+body{
+    margin: 0
+}
+
+
+.cardFrame{
+box-shadow: initial;
+height: 200px;
+width: 400px;
+font-family: 'Cinzel', serif;
+background-color: aliceblue;
+border: 2px black solid;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+margin: 5px;
+box-shadow: wheat;
+}
+
+.container{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
