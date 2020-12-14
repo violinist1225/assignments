@@ -3,6 +3,7 @@ import React from "react"
 function Badge(props){
     return(
         <div class="badgeStyleContainer">
+            <div class="header"></div>
             <div class="innerboxBadge">
                 <h3> {props.data.firstName} </h3>
                 <h3> {props.data.lastName} </h3>
