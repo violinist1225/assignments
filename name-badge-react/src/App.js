@@ -14,22 +14,47 @@ class App extends React.Component {
             phoneNumber: "",
             favoriteFood: "",
             aboutSection: "",
-            badge: null
+            badges: [],
+            disabled: true
         }
     }
 
 handleChange =(e) => {
     const{value, name} = e.target
     this.setState({[name]: value})
-
+    const enabled = this.state.firstName.length >=2 && 
+                    this.state.lastName.length >=2 &&
+                    this.state.email.length >=2 &&
+                    this.state.placeOfBirth.length >=2 &&
+                    this.state.phoneNumber.length >=2 &&
+                    this.state.favoriteFood.length >=2 &&
+                    this.state.aboutSection.length >=2 
+                   
+if(enabled === true ){
+    this.setState((prevState) => {
+        return {...prevState, disabled: false}
+    }
+    )}
+    else{
+       this.setState((prevState) => {
+           return {...prevState, disabled: true}
+       })
+    }
 }
-
 
 handleSubmit = (e) => {
     e.preventDefault()
-    this.setState({badge: <Badge 
-        data= {this.state} />}) 
+    this.setState((prevState) =>{
+       return {badges: [...prevState.badges, <Badge 
+        data= {this.state}                 />]}
+    })
+    
+    // handleSubmit method could house object for badge instead of component, if I want
+    // to access info again wouldn't be able to with current code. Ex: 
+
+        
 }
+
 
 render() {
     return(
@@ -89,11 +114,30 @@ render() {
                         </textarea>
 
 
-                    <button type="submit"> Submit </button>
+                    <button id="submitButton"
+                     type="submit"
+                    //  disabled={this.state.disabled}
+                     >Submit </button>
                     </form>
                 </div>
             </div>
-            {this.state.badge ? this.state.badge : <p></p>}
+            //this.state.badges is a security checkpoint that checks to see if it exists
+            {this.state.badges && this.state.badges.length >0 && this.state.badges.map(badge =>
+    {   <Badge 
+        firstName = {badge.firstName}
+        lastName  = {badge.lastName}
+        email     = {badge.email}
+        phoneNumber = {badge.phoneNumber}
+        placeOfBirth = {badge.placeOfBirth}
+        favoriteFood = {badge.favoriteFood}
+        aboutSection = {badge.aboutSection}
+        />
+    })
+}
+
+
+
+            {/* {this.state.charCountWarning ? <p>"You Need To Enter More than 3 Characters for each field!</p>: <> </>} */}
         </div>
     )
     }
