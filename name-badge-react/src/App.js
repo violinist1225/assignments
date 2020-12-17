@@ -15,7 +15,6 @@ class App extends React.Component {
             favoriteFood: "",
             aboutSection: "",
             badges: [],
-            disabled: true
         }
     }
 
@@ -45,8 +44,18 @@ if(enabled === true ){
 handleSubmit = (e) => {
     e.preventDefault()
     this.setState((prevState) =>{
-       return {badges: [...prevState.badges, <Badge 
-        data= {this.state}                 />]}
+       return {badges: [...prevState.badges, {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        placeOfBirth: this.state.placeOfBirth,
+        phoneNumber: this.state.phoneNumber,
+        favoriteFood: this.state.favoriteFood,
+        aboutSection: this.state.aboutSection,
+        badges: this.state.badges,
+        disabled: this.state.disabled 
+       }]}
+    
     })
     
     // handleSubmit method could house object for badge instead of component, if I want
@@ -116,12 +125,12 @@ render() {
 
                     <button id="submitButton"
                      type="submit"
-                    //  disabled={this.state.disabled}
+                     disabled={this.state.disabled}
                      >Submit </button>
                     </form>
                 </div>
             </div>
-            //this.state.badges is a security checkpoint that checks to see if it exists
+            {/* //this.state.badges is a security checkpoint that checks to see if it exists */}
             {this.state.badges && this.state.badges.length >0 && this.state.badges.map(badge =>
     {   <Badge 
         firstName = {badge.firstName}
@@ -137,7 +146,7 @@ render() {
 
 
 
-            {/* {this.state.charCountWarning ? <p>"You Need To Enter More than 3 Characters for each field!</p>: <> </>} */}
+    {/* {this.state.charCountWarning ? <p>"You Need To Enter More than 3 Characters for each field!</p>: <> </>} */}
         </div>
     )
     }
