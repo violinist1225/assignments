@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.cardwrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 65%;
+    margin: auto;
+}
