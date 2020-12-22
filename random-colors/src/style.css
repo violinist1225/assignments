@@ -1,0 +1,7 @@
+.box{
+    display: flex;
+    width: 300px;
+    height: 250px;
+    align-items: center;
+    border: 2px dashed darkblue;
+}
